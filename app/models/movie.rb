@@ -5,7 +5,7 @@ class Movie < ActiveRecord::Base
   	validates_numericality_of :rating, :greater_than => 0, :less_than_or_equal_to => 5
 
   def self.search_for(query)
-    Movie.where("title LIKE :query OR description LIKE :query", {:query => "%#{query}%"})
+    Movie.where("title LIKE :query OR description LIKE :query OR year LIKE :query OR rating LIKE :query", {:query => "%#{query}%"})
   end
 
 end
